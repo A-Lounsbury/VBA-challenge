@@ -55,7 +55,7 @@ Sub populateSpreadsheet():
             Dim percentChange As Double
             Dim totalStockValue As Double
             
-            'Popoulating cells
+            'Populating the first cells
             ticker = ws.Cells(firstIndex, 1)
             yearlyChange = ws.Cells(lastIndex, 6).Value - ws.Cells(firstIndex, 3)
             percentChange = yearlyChange / ws.Cells(firstIndex, 6)
@@ -72,7 +72,7 @@ Sub populateSpreadsheet():
             ws.Range("K" & recordToAdd) = FormatPercent(percentChange)
             ws.Range("L" & recordToAdd) = totalStockValue
             
-            'Getting the indices of each range until the end
+            'Getting the indices of each ticker range until the end
             'https://excelchamps.com/vba/do-while/
             Do While lastIndex < lastRow
                 firstIndex = lastIndex + 1
@@ -81,11 +81,9 @@ Sub populateSpreadsheet():
                 i = firstIndex
                 curTicker = ws.Cells(i, 1)
                 nextTicker = ws.Cells(i + 1, 1)
-                'https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/strcomp-function
                 Do While Not StrComp(curTicker, nextTicker)
                     i = i + 1
                     curTicker = ws.Cells(i, 1)
-                    'https://www.techonthenet.com/excel/formulas/isempty.php
                     If Not IsEmpty(ws.Cells(i + 1, 1).Value) Then
                         nextTicker = ws.Cells(i + 1, 1)
                     End If
@@ -109,8 +107,12 @@ Sub populateSpreadsheet():
                 ws.Range("K" & recordToAdd) = FormatPercent(percentChange)
                 ws.Range("L" & recordToAdd) = totalStockValue
             Loop
+        
+        'Setting the formatting in the Yearly Change column
+        'https://www.exceldemy.com/excel-vba-format-number-decimal-places/
+        Range("J2:J" & lastRow).NumberFormat = "#0.00"
             
-        'Getting maxes
+        'Getting maxes and mins
         Dim maxPercent As Double
         Dim maxPercentIndex As Integer
         Dim minPercent As Double
