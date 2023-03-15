@@ -1,3 +1,7 @@
+' module2_script.vbs
+' Andrew Lounsbury
+' 15/3/23
+' Purpose: module 2 for Vanderbilt Data Analytics Bootcamp, populates the sample spreadsheet with data
 Sub populateSpreadsheet():
     Dim sht As Worksheet
     For Each ws In ThisWorkbook.Worksheets
