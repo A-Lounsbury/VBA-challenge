@@ -1,5 +1,4 @@
 # VBA-Challenge
-## Andrew Lounsbury
 module 2 VBA challenge for Vanderbilt Data Analytics Bootcamp
 
 We apply `module2_script.vbs` to the given stock data to obtain the following: 
