@@ -137,7 +137,7 @@ Sub populateSpreadsheet():
         Loop
         lastRecord = i - 1
         
-        'looping through the columns
+        'looping through the elements
         For i = 2 To lastRecord
             If ws.Cells(i, 11) > maxPercent Then
                 maxPercent = ws.Cells(i, 11)
