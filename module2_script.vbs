@@ -128,6 +128,16 @@ Sub populateSpreadsheet():
         minPercent = 9999
         maxVolume = -1
         
+        'getting the index of the last entry in the column
+        i = 2
+        curRecord = ws.Cells(i, 9)
+        Do While Not IsEmpty(ws.Cells(i, 9))
+            i = i + 1
+            curTicker = ws.Cells(i, 9)
+        Loop
+        lastRecord = i - 1
+        
+        'looping through the columns
         For i = 2 To 3001
             If ws.Cells(i, 11) > maxPercent Then
                 maxPercent = ws.Cells(i, 11)
