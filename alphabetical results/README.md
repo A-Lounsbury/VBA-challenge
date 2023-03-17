@@ -6,3 +6,4 @@ The results of the `module2_script.vbs` applied to `alphabetical_testing.xlsx` a
 ![sheet C](module2_c.png)
 ![sheet D](module2_d.png)
 ![sheet E](module2_e.png)
+![sheet F](module2_f.png)
